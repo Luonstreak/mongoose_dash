@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Monguser <%= data %></title>
+</head>
+<body>
+    <% for(var i in data){ %>
+    <h2>Name: <%= data[i].name %></h2>
+    <h3>Height: <%= data[i].height %></h3>
+    <h3>Weight: <%= data[i].weight %></h3>
+    <% } %>
+    <a href='/mongooses/edit/<%= data[i].id %>'>Edit this monguser</a>
+</body>
+</html>
