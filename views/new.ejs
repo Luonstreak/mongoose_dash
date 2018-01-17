@@ -3,24 +3,28 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Add a mongoose</title>
+	<link rel="stylesheet" href="/style.css">
 </head>
 <body>
-	<h1>Add a Monguser</h1>
-	<form action="/create" method="POST">
-		<p>
-			<label for="name">Name: </label>
-			<input type="text" name="name">
-		</p>
-		<p>
-			<label for="height">Height: </label>
-			<input type="text" name="height">
-		</p>
-		<p>
-			<label for="weight">Weight: </label>
-			<input type="text" name="weight">
-		</p>
-		<input type="submit" value="Create">
-
-	</form>
+	<div class="container">
+		<h1>Add a Monguser</h1>
+		<hr>
+		<form action="/create" method="POST">
+			<p>
+				<label for="name">Name: </label>
+				<input type="text" name="name">
+			</p>
+			<p>
+				<label for="height">Height: </label>
+				<input type="text" name="height">
+			</p>
+			<p>
+				<label for="weight">Weight: </label>
+				<input type="text" name="weight">
+			</p>
+			<hr>
+			<input class="button" type="submit" value="Create">
+		</form>
+	</div>
 </body>
 </html>

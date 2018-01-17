@@ -3,26 +3,30 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Edit a mongoose</title>
+	<link rel="stylesheet" href="/style.css">
 </head>
 <body>
-	<h1>Edit a Monguser</h1>
-    <form action="/update" method="POST">
-        <% for(i in data){ %>
-		<p>
-			<label for="name">Name: </label>
-			<input type="text" name="name" value='<%= data[i].name %>'>
-		</p>
-		<p>
-			<label for="height">Height: </label>
-			<input type="text" name="height" value='<%= data[i].height %>'>
-		</p>
-		<p>
-			<label for="weight">Weight: </label>
-			<input type="text" name="weight" value='<%= data[i].weight %>'>
-        </p>
-        <input type="hidden" name="id" value='<%= data[i].id %>'>
-		<input type="submit" value="Edit">
-        <% } %>
-	</form>
+	<div class="container">
+		<h1>Edit a Monguser</h1>
+		<hr>
+	    <form action="/update" method="POST">
+			<p>
+				<label for="name">Name: </label>
+				<input type="text" name="name" value='<%= data.name %>'>
+			</p>
+			<p>
+				<label for="height">Height: </label>
+				<input type="text" name="height" value='<%= data.height %>'>
+			</p>
+			<p>
+				<label for="weight">Weight: </label>
+				<input type="text" name="weight" value='<%= data.weight %>'>
+	        </p>
+	        <input type="hidden" name="id" value='<%= data.id %>'>
+	        <hr>
+	    <a class="button" href="/mongooses/<%= data.id %>">Go Back</a>
+			<input class="button" type="submit" value="Edit" onclick="return confirm('Commit the changes?')">
+		</form>
+	</div>
 </body>
 </html>

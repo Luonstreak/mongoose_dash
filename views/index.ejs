@@ -3,15 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Dashboard</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="/style.css">
 </head>
 <body>
-	<h1>Monguser's Dashboard</h1>
-	<a href="/new">Add a monguser</a>
-	<ul>
+	<div class="container">
+		<h1>Monguser's Dashboard</h1>
+		<hr>
 		<% for(var i in data){ %>
-		<a href='/mongooses/<%= data[i].id %>'><li>Name: <span><%= data[i].name %></span></li></a>
+		<a href='/mongooses/<%= data[i].id %>'><h2><%= data[i].name %></h2></a>
 		<% } %>
-	</ul>
+		<hr>
+		<a class="button" href="/mongooses/new">Add a monguser</a>
+	</div>
 </body>
 </html>

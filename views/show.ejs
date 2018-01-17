@@ -4,14 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Monguser <%= data %></title>
+    <title><%= data.name %></title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <% for(var i in data){ %>
-    <h2>Name: <%= data[i].name %></h2>
-    <h3>Height: <%= data[i].height %></h3>
-    <h3>Weight: <%= data[i].weight %></h3>
-    <% } %>
-    <a href='/mongooses/edit/<%= data[i].id %>'>Edit this monguser</a>
+	<div class="container">
+    <h2>Name: <%= data.name %></h2>
+    <hr>
+    <h3>Height: <span><%= data.height %></span> Ft.</h3>
+    <h3>Weight: <span><%= data.weight %></span> Lb.</h3>
+    <hr>
+    <p>
+    	<a class="button" href='/mongooses/edit/<%= data.id %>'>Edit this monguser</a>
+	    <a class="button" href='/mongooses/destroy/<%= data.id %>' onclick="return confirm('Are you sure you want to delete this monguser?')">Delete this monguser</a>
+	  </p>
+  </div>
 </body>
 </html>

@@ -1,3 +1,42 @@
+* {
+	font-family: sans-serif;
+	font-weight: lighter;
+	box-sizing: border-box;
+	list-style-type: none;
+	text-decoration: none;
+}
+
+.container{
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+
+}
+
+.container > p {
+	margin-top: 20px;
+}
+
+.button {
+	width: 150px;
+	font-style: 10px;
+	display: inline-block;
+	text-align: center;
+	margin: 20px auto 0 auto;
+	padding: 10px 20px;
+	border: 1px solid dodgerblue;
+	color: gray;
+}
+
 span {
-	color: dodgerblue;
+	color: black;
+}
+
+label {
+	font-size: 22px;
+}
+
+input {
+	padding: 10px;
+	font-size: 16px;
 }

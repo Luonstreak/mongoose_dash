@@ -26,10 +26,10 @@ app.get('/', function(req,res){
 		}
 	})
 })
-app.get('style.css', function(req, res){
+app.get('/style.css', function(req, res){
 	res.render('style.css');
 })
-app.get('/new', function(req,res){
+app.get('/mongooses/new', function(req,res){
 	res.render('new');
 })
 app.post('/create', function(req,res){
@@ -42,39 +42,45 @@ app.post('/create', function(req,res){
 		if(err){
 			console.log("something went wrong saving the new monguser");
 		} else {
-			console.log("new monguser added!");
 			res.redirect('/');
 		} 
 	})
 })
 app.get('/mongooses/:id', function(req,res){
-	Monguser.find({}, function(err, monguser){
+	Monguser.findOne({_id: req.params.id}, function(err, monguser){
 		if(err){
-			console.log("something went wrong trying to retrieve all mongooses");
+			console.log("something went wrong retrieving the monguser");
 		} else {
-			console.log("mongooses found")
 			res.render('show', {data: monguser});
 		}
 	})
 })
 app.get('/mongooses/edit/:id', function(req,res){
-	Monguser.find({}, function(err, monguser){
+	Monguser.findOne({_id: req.params.id}, function(err, monguser){
 		if(err){
 			console.log("something went wrong trying to retrieve all mongooses");
 		} else {
-			console.log("mongooses found")
 			res.render('edit', {data: monguser});
 		}
 		})
 	})
 app.post('/update', function(req,res){
-	console.log("--------------------");
-	console.log(req.body);
-	Monguser.update({_id: req.body.id}, {$set: {name: req.body.name, height: req.body.height, weight: req.body.weight}});
-	res.redirect('mongooses/' + req.body.id)
+ 	Monguser.update({_id: req.body.id},{name: req.body.name, height: req.body.height, weight: req.body.weight}, function(err, updated){
+ 		console.log(updated);
+		res.redirect('/mongooses/' + req.body.id)
+	});
 })
-
-
+app.get('/mongooses/destroy/:id', function(req,res){
+ 	Monguser.remove({_id: req.params.id}, function(err){
+ 		if(err){
+ 			console.log("there was an error while trying to delete!");
+ 			res.redirect('/mongooses/' + req.params.id);
+ 		} else {
+ 			console.log("monguser deleted!")
+ 			res.redirect('/');
+ 		}
+	});
+})
 // HOSTING
 app.listen(8000, function(){
 	console.log('-- running localhost in port 8000 --');
