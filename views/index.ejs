@@ -8,10 +8,9 @@
 <body>
 	<h1>Monguser's Dashboard</h1>
 	<a href="/new">Add a monguser</a>
-	<p><%= data %></p>
 	<ul>
 		<% for(var i in data){ %>
-		<li><span>Name: </span><%= data[i].name %>, <span>Height: </span><%= data[i].height %>, <span>Weight: </span><%= data[i].weight %></li>
+		<a href='/mongooses/<%= data[i].id %>'><li>Name: <span><%= data[i].name %></span></li></a>
 		<% } %>
 	</ul>
 </body>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Edit a mongoose</title>
+</head>
+<body>
+	<h1>Edit a Monguser</h1>
+    <form action="/update" method="POST">
+        <% for(i in data){ %>
+		<p>
+			<label for="name">Name: </label>
+			<input type="text" name="name" value='<%= data[i].name %>'>
+		</p>
+		<p>
+			<label for="height">Height: </label>
+			<input type="text" name="height" value='<%= data[i].height %>'>
+		</p>
+		<p>
+			<label for="weight">Weight: </label>
+			<input type="text" name="weight" value='<%= data[i].weight %>'>
+        </p>
+        <input type="hidden" name="id" value='<%= data[i].id %>'>
+		<input type="submit" value="Edit">
+        <% } %>
+	</form>
+</body>
+</html>
