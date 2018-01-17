@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1>Monguser's Dashboard</h1>
+	<a href="/new">Add a monguser</a>
+	<p><%= data %></p>
+	<ul>
+		<% for(var i in data){ %>
+		<li><span>Name: </span><%= data[i].name %>, <span>Height: </span><%= data[i].height %>, <span>Weight: </span><%= data[i].weight %></li>
+		<% } %>
+	</ul>
+</body>
+</html>
